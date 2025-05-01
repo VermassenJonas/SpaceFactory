@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+	<head>
+		<link rel="stylesheet" id="bootstrap-import" href="./css/bootstrap.css">
+	</head>
+	<template id="btn-prim">
+		<button class="btn btn-primary"><slot name="text"><span>None</span></slot></button>
+	</template>
+	<body>
+		hello world
+		<button class="btn btn-outline-primary" id="clickbutton"> Click me</button>
+		<btn-prim></btn-prim>
+		<btn-prim>
+			<span slot="text"> Imagine</span>
+		</btn-prim>
+		<div>
+			<span data-resource="iron" class="display">Loading...</span>
+		</div>
+	</body>
+	<script type="module" src="app.js"></script>
+	<script src="./lib/bootstrap.bundle.js"></script>
+</html>
