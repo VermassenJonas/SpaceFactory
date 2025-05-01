@@ -4,7 +4,11 @@ import { tickLength } from "./js/Options.js"
 import "./js/resources.js"
 import "./js/template-maker.js"
 import { templateInit } from "./js/template-maker.js"
+import "./js/scenarios/seablock.js"
+
+
 console.log("app.js loaded")
+
 
 
 
@@ -29,6 +33,13 @@ observable.value = 15
 //#endregion
 
 templateInit('btn-prim');
+
+
+
+
+
+
+
 
 function updateDisplay(display){
 	display.innerHTML = makeUp(data.resources[display.dataset.resource].amount)
