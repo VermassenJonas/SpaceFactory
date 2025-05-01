@@ -1,4 +1,5 @@
 import { data } from "./js/Data.js"
+import { getObservable, Observable } from "./js/Observable.js"
 import { tickLength } from "./js/Options.js"
 import "./js/resources.js"
 import "./js/template-maker.js"
@@ -13,6 +14,18 @@ export const clickHandler = function () {
 	console.log('Click just happened')
 }
 el.addEventListener('click', clickHandler);	
+
+
+
+let observable = new Observable(1)
+
+console.log(observable.value)
+observable.value = 5
+console.log(observable.value)
+
+
+observable.addSubscriber((val) => console.log(val))
+observable.value = 15
 //#endregion
 
 templateInit('btn-prim');
