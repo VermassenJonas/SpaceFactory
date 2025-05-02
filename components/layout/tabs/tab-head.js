@@ -1,4 +1,4 @@
-import { importComponent } from "../../js/templater.js";
+import { importComponent } from "../../../js/templater.js";
 
 importComponent("tab-head", (el, innerHTML = null)=> {
 	let tabName = el.dataset.tab
@@ -13,4 +13,4 @@ importComponent("tab-head", (el, innerHTML = null)=> {
 	}
 	tabHead.innerHTML = innerHTML
 	
-}, "./components/tabs/tab-head.html")
+}, "./components/layout/tabs/tab-head.html")

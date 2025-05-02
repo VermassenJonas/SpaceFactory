@@ -4,10 +4,10 @@ import { tickLength } from "./js/Options.js"
 import "./js/resources.js"
 import "./js/scenarios/seablock.js"
 //import "./components/test/btn-prim.js"
-import "./components/tabs/tab-head.js"
-import "./components/tabs/tab-pane.js"
-import "./components/tabs/tab-bar.js"
-import "./components/tabs/tab-body.js"
+import "./components/layout/tabs/tab-head.js"
+import "./components/layout/tabs/tab-pane.js"
+import "./components/layout/tabs/tab-bar.js"
+import "./components/layout/tabs/tab-body.js"
 console.log("app.js loaded")
 
 

@@ -62,12 +62,12 @@ export function importComponent(component, postScript = null, htmlFile = null) {
 					.then(file => file.text())
 					.then(
 						html => {
-							let doc = document.createElement("html");
-							doc.innerHTML = html
+							const doc = document.createElement("html");
+							doc.innerHTML = html;
 							const template =
 								doc.querySelector("template")
 									.content;
-							let node = template.cloneNode(true)
+							const node = template.cloneNode(true)
 							node.dataset = this.dataset
 							this.getAttributeNames().forEach(name => {
 								if (!name.startsWith("data-") || name === "class") {
@@ -79,8 +79,8 @@ export function importComponent(component, postScript = null, htmlFile = null) {
 							}else{
 								node.firstElementChild.innerHTML = this.innerHTML
 							}
-							this.parentElement.replaceChild(node, this)
-							
+							//this.parentElement.replaceChild(node, this)
+							this.replaceWith(node)
 						}
 					);
 
