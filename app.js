@@ -10,29 +10,26 @@ import "./components/layout/tabs/tab-bar.js"
 import "./components/layout/tabs/tab-body.js"
 console.log("app.js loaded")
 
-
-
-const bootstrapImport = document.querySelector("#bootstrap-import")
-
-
 //#region Test code
-// let el = document.getElementById('clickbutton')
-// export const clickHandler = function () {
-// 	console.log('Click just happened')
-// }
-// el.addEventListener('click', clickHandler);	
+
+let iron = getObservable(5)
+console.log(iron.value)
+
+iron.set(15)
+
+console.log(iron.value)
+
+iron.addSubscriber((newVal, oldVal) =>{
+	console.log(`iron: ${newVal}`)
+})
+
+iron.value = 25
+console.log(iron.value)
 
 
 
-// let observable = new Observable(1)
+//#endregion
 
-// console.log(observable.value)
-// observable.value = 5
-// console.log(observable.value)
-
-
-// observable.addSubscriber((val) => console.log(val))
-// observable.value = 15
 
 
 
