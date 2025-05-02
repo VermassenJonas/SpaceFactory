@@ -1,5 +1,5 @@
 import { data } from "./js/Data.js"
-import { getObservable, Observable } from "./js/Observable.js"
+import { Observable } from "./js/Observable.js"
 import { tickLength } from "./js/Options.js"
 import "./js/resources.js"
 import "./js/scenarios/seablock.js"
@@ -10,25 +10,6 @@ import "./components/layout/tabs/tab-bar.js"
 import "./components/layout/tabs/tab-body.js"
 console.log("app.js loaded")
 
-//#region Test code
-
-let iron = getObservable(5)
-console.log(iron.value)
-
-iron.set(15)
-
-console.log(iron.value)
-
-iron.addSubscriber((newVal, oldVal) =>{
-	console.log(`iron: ${newVal}`)
-})
-
-iron.value = 25
-console.log(iron.value)
-
-
-
-//#endregion
 
 
 

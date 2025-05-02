@@ -21,7 +21,7 @@ export function importComponent_old(component, postScript = null, htmlFile = nul
 							node.dataset = this.dataset;
 							node.firstElementChild.classList.add(...this.classList)
 							this.getAttributeNames().forEach(name => {
-								if (!name === "class") {
+								if (!(name === "class"||name === "hidden")) {
 									node.firstElementChild.setAttribute(name, this.getAttribute(name))
 								}
 							});
