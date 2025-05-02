@@ -1,6 +1,14 @@
-import { importComponentFromFile } from "../../../src/utility/templater.js";
+import { importComponent } from "../../../src/utility/templater.js";
 
-importComponentFromFile("tab-head", (el, innerHTML = null)=> {
+const template = /*html */
+`
+<li class="nav-item" role="presentation">
+<button class="nav-link" id="tab-id" data-bs-toggle="tab" data-bs-target=""
+type="button" role="tab" aria-controls="" aria-selected="false">Home</button>
+</li>
+`
+
+function postScript(el, innerHTML = null){
 	let tabName = el.dataset.tab
 	let selected = el.dataset.selected
 	let tabHead = el.querySelector("#tab-id")
@@ -11,6 +19,8 @@ importComponentFromFile("tab-head", (el, innerHTML = null)=> {
 		tabHead.setAttribute("aria-selected", true)
 		tabHead.classList.add("active")
 	}
-	tabHead.innerHTML = innerHTML
-	
-}, "./components/layout/tabs/tab-head.html")
+	tabHead.innerHTML = innerHTML	
+}
+
+
+importComponent("tab-head", template ,postScript)

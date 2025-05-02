@@ -1,10 +1,11 @@
-import { importComponentFromFile} from "../../../src/utility/templater.js";
+import { importComponent, importComponentFromFile } from "../../../src/utility/templater.js";
 
-
-function init(){
-
-	importComponentFromFile("tab-pane", (el, innerHTML = null) => {
-		let tabName = el.dataset.tab
+const template = /*html*/`
+<div class="tab-pane fade" id="tab-pane-id" role="tabpanel" aria-labelledby="tab-head"
+tabindex="0">Placeholder</div>	
+` 
+function postScript(el, innerHTML){
+	let tabName = el.dataset.tab
 		let selected = el.dataset.selected
 		let pane = el
 		pane.setAttribute("id", `${tabName}-tab-pane`)
@@ -13,8 +14,10 @@ function init(){
 			pane.classList.add("show", "active")
 		}
 		pane.innerHTML = innerHTML
-		
-	}, "./components/layout/tabs/tab-pane.html")
+}
+function init() {
+
+	importComponent("tab-pane", template, postScript)
 }
 
 init()

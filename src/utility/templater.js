@@ -35,7 +35,6 @@ export function importComponentFromFile(component, postScript = null, htmlFile =
 							node.innerHTML = this.innerHTML
 						}
 						this.replaceWith(node)
-						this.init = postScript.bind(null, node)
 					}
 				);
 
@@ -46,6 +45,26 @@ export function importComponentFromFile(component, postScript = null, htmlFile =
 		return customComp
 }
 
-export function importComponent(tag, htmlString, postScript = null) {
-	
+export function importComponent(tag, htmlString, postScript = (el, innerHTML) => el.innerHTML = innerHTML) {
+	let customComp = class extends HTMLElement {
+		constructor(){
+			super()
+			const doc = document.createElement("body")
+			doc.innerHTML = htmlString
+			const node = doc.firstElementChild.cloneNode(true)
+			
+			node.classList.add(...this.classList)
+			for (let d in this.dataset) {
+				node.setAttribute(`data-${d}`, this.dataset[d])
+			}
+			this.getAttributeNames().forEach(name => {
+				if (!(name === "class") || name.startsWith("data-")) {
+					node.setAttribute(name, this.getAttribute(name))
+				}
+			});
+			postScript(node, this.innerHTML)
+			this.replaceWith(node)
+		}	
+	}
+	customElements.define(tag, customComp)
 }

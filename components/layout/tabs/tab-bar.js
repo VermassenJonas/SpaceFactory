@@ -1,3 +1,12 @@
-import { importComponentFromFile } from "../../../src/utility/templater.js";
+import { importComponent, importComponentFromFile } from "../../../src/utility/templater.js";
+const template = /*html */`
 
-importComponentFromFile("tab-bar", null, "./components/layout/tabs/tab-bar.html")
+<ul class="nav nav-tabs" role="tablist">
+Placeholder
+</ul>
+
+`
+
+
+importComponent("tab-bar", template)
+
