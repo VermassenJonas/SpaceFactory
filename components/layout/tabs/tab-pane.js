@@ -1,9 +1,9 @@
-import { importComponent} from "../../../js/templater.js";
+import { importComponentFromFile} from "../../../src/utility/templater.js";
 
 
 function init(){
 
-	importComponent("tab-pane", (el, innerHTML = null) => {
+	importComponentFromFile("tab-pane", (el, innerHTML = null) => {
 		let tabName = el.dataset.tab
 		let selected = el.dataset.selected
 		let pane = el

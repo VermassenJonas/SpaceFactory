@@ -1,6 +1,6 @@
-import { importComponent } from "../../../js/templater.js";
+import { importComponentFromFile } from "../../../src/utility/templater.js";
 
-importComponent("tab-head", (el, innerHTML = null)=> {
+importComponentFromFile("tab-head", (el, innerHTML = null)=> {
 	let tabName = el.dataset.tab
 	let selected = el.dataset.selected
 	let tabHead = el.querySelector("#tab-id")

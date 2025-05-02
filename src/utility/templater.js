@@ -3,7 +3,7 @@
 export let componentsRoot = "./components/"
 export let componentsExtension = ".html"
 
-export function importComponent(component, postScript = null, htmlFile = null) {
+export function importComponentFromFile(component, postScript = null, htmlFile = null) {
 	const customComp = class extends HTMLElement {
 		constructor() {
 			super();
@@ -44,4 +44,8 @@ export function importComponent(component, postScript = null, htmlFile = null) {
 		customElements.define(component,
 			customComp)
 		return customComp
+}
+
+export function importComponent(tag, htmlString, postScript = null) {
+	
 }

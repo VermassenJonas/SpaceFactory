@@ -1,3 +1,3 @@
-import { importComponent } from "../../../js/templater.js";
+import { importComponentFromFile } from "../../../src/utility/templater.js";
 
-importComponent("tab-body",null, "./components/layout/tabs/tab-body.html")
+importComponentFromFile("tab-body",null, "./components/layout/tabs/tab-body.html")
