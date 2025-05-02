@@ -1,13 +1,7 @@
 //#region classes
-import { Input, Output, Recipe } from "../classes.js";
-
 console.log("seablock scenario loaded")
 
-export default {
-	items : [
 
-	]
-}
 
 
 export const items = [

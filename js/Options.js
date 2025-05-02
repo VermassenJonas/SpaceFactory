@@ -1,1 +1,1 @@
-export let tickLength = 200
+export let tickLength = 1000
