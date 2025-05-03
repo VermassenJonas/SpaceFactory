@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Space Factory</title>
+	<link rel="stylesheet" id="style-import" href="/css/bootstrap.css">
+</head>
+<div hidden id="templates">
+	<template tag="btn-prim">
+		<button class="btn btn-primary">
+			<slot>button</slot></button>
+	</template>
+</div>
+<body>
+	<btn-prim><span>passthrough</span></btn-prim>
+	<button class="btn btn-primary">
+		test
+	</button>
+
+</body>
+
+<test-template data-btn="working!"></test-template>
+<script type="module" src="app.js"></script>
+<script src="/lib/bootstrap.bundle.js"></script>
+
+</html>
