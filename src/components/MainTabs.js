@@ -1,7 +1,7 @@
 import {html,  importComponent } from "/src/utility/templater.js";
 
 const template = html`
-	<button class="warning">placeholder</button>
+	
 `
 function postScript(el, innerHTML) {
 	el.innerHTML = "testing"
