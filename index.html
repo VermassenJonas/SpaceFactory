@@ -1,15 +1,29 @@
 <!doctype html>
-<html>
+<html data-theme="light">
 
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Space Factory</title>
-	<link rel="stylesheet" id="bootstrap-import" href="">
+	<link rel="stylesheet" id="style-import" href="/src/style.min.css">
 </head>
-<body>
+<div id="templates" hidden="true">
+	<template tag="btn-def">
+		<button class="button">Button</button>
+	</template>
+	<template tag="btn-prim">
+		<btn-def class="is-primary"></btn-def>
+	</template>
+</div>
 
-  <dummy-el>test-placeholder</dummy-el>
+<body>
+	<btn-prim id="test-id">test</btn-prim>
+	<btn-prim> test 2</btn-prim>
+	<btn-prim> </btn-prim>
+	<div>
+		<button class="button is-primary">Testing 1</button>
+	</div>
+	<dummy-el>test-placeholder</dummy-el>
 </body>
 <script type="module" src="/src/app.js"></script>
 
