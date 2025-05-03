@@ -1,4 +1,4 @@
-import { importComponent } from "../../src/utility/templater.js";
+import { importComponent } from "../../utility/templater.js";
 
 
 export const varWatcher = importComponent("var-watcher", 

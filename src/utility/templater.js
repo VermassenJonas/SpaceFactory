@@ -45,7 +45,30 @@ export function importComponentFromFile(component, postScript = null, htmlFile =
 		return customComp
 }
 
-export function importComponent(tag, htmlString, postScript = (el, innerHTML) => el.innerHTML = innerHTML) {
+export function old_html(strings){
+	const htmlString = strings.join(""); //TODO:make better
+	const doc = document.createElement("body");
+	doc.innerHTML = htmlString;
+	return doc.firstElementChild
+}
+
+export function html(strings, ...keys) {
+	return (...values) => {
+	  const dict = values[values.length - 1] || {};
+	  const result = [strings[0]];
+	  keys.forEach((key, i) => {
+		const value = Number.isInteger(key) ? values[key] : dict[key];
+		result.push(value, strings[i + 1]);
+	  });
+	  const htmlString = result.join("");
+	  const doc = document.createElement("body");
+	  doc.innerHTML = htmlString;
+	  return doc.firstElementChild.cloneNode(true)
+	};
+  }
+
+
+export function importComponent_old(tag, htmlString, postScript = (el, innerHTML) => el.innerHTML = innerHTML) {
 	let customComp = class extends HTMLElement {
 		constructor(){
 			super()
@@ -68,3 +91,26 @@ export function importComponent(tag, htmlString, postScript = (el, innerHTML) =>
 	}
 	customElements.define(tag, customComp)
 }
+
+export function importComponent(tag, template, postScript = (el, innerHTML) => el.innerHTML = innerHTML) {
+	let customComp = class extends HTMLElement {
+		constructor(){
+			super()			
+			const node = template
+			node.classList.add(...this.classList)
+			for (let d in this.dataset) {
+				node.setAttribute(`data-${d}`, this.dataset[d])
+			}
+			this.getAttributeNames().forEach(name => {
+				if (!(name === "class") || name.startsWith("data-")) {
+					node.setAttribute(name, this.getAttribute(name))
+				}
+			});
+			postScript(node, this.innerHTML)
+			this.replaceWith(node)
+		}	
+	}
+	customElements.define(tag, customComp)
+	
+}
+

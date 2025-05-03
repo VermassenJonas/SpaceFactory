@@ -1,10 +1,9 @@
-import { importComponent } from "../../../src/utility/templater.js";
+import { html, importComponent_old } from "../../../utility/templater.js";
 
-const template = /*html */
-`
+const template = /*html */`
 <li class="nav-item" role="presentation">
-<button class="nav-link" id="tab-id" data-bs-toggle="tab" data-bs-target=""
-type="button" role="tab" aria-controls="" aria-selected="false">Home</button>
+	<button class="nav-link" id="tab-id" data-bs-toggle="tab" data-bs-target="" type="button" role="tab"
+		aria-controls="" aria-selected="false">Home</button>
 </li>
 `
 
@@ -23,4 +22,4 @@ function postScript(el, innerHTML = null){
 }
 
 
-importComponent("tab-head", template ,postScript)
+importComponent_old("tab-head", template ,postScript)
